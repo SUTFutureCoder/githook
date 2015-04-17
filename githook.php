@@ -41,6 +41,13 @@ if (empty($error)){
         $fileData .= 'Create dir' . PHP_EOL;
         $fileData .= '----------' . PHP_EOL;
         mkdir(__CACHE_DIR__ . '/' . $repo_name, 0777, TRUE);
+        
+        $fileData .= '----------' . PHP_EOL;
+        $fileData .= 'Clone' . PHP_EOL;
+        $fileData .= '----------' . PHP_EOL;
+        $command = 'git clone ' . $repo_clone_url . ' ' . __CACHE_DIR__ . '/' . $repo_name;
+        exec($command, $result);
+        $fileData .= 'Result: ' . PHP_EOL . '* ' . implode(PHP_EOL . '* ', $result) . PHP_EOL . PHP_EOL;
     }
 
     $fileData .= '----------' . PHP_EOL;
@@ -58,17 +65,6 @@ if (empty($error)){
         $fileData .= 'Result: ' . PHP_EOL . '* ' . implode(PHP_EOL . '* ', $result) . PHP_EOL . PHP_EOL;
         $updated = true;
     }
-    
-    
-    if (!$updated){
-        $fileData .= '----------' . PHP_EOL;
-        $fileData .= 'Clone' . PHP_EOL;
-        $fileData .= '----------' . PHP_EOL;
-        $command = 'git clone ' . $repo_clone_url . ' ' . __CACHE_DIR__ . '/' . $repo_name;
-        exec($command, $result);
-        $fileData .= 'Result: ' . PHP_EOL . '* ' . implode(PHP_EOL . '* ', $result) . PHP_EOL . PHP_EOL;
-    }
-
 }
 
 if (!empty($error)){
