@@ -36,11 +36,11 @@ if (empty($error)){
     $repo_clone_url = $payload['repository']['clone_url'];
     
     //Cache project (clone if not exists or sync)
-    if (!is_dir(__CACHE_DIR__ . $repo_name)){
+    if (!is_dir(__CACHE_DIR__ . '/' . $repo_name)){
         $fileData .= '----------' . PHP_EOL;
         $fileData .= 'Create dir' . PHP_EOL;
         $fileData .= '----------' . PHP_EOL;
-        mkdir(__CACHE_DIR__ . $repo_name, 0777, TRUE);
+        mkdir(__CACHE_DIR__ . '/' . $repo_name, 0777, TRUE);
     }
 
     $fileData .= '----------' . PHP_EOL;
@@ -48,11 +48,11 @@ if (empty($error)){
     $fileData .= '----------' . PHP_EOL;
     
     //If dir is already created, try to sync it
-    if (is_dir(__CACHE_DIR__ . $repo_name)){
+    if (is_dir(__CACHE_DIR__ . '/' . $repo_name)){
         $fileData .= '----------' . PHP_EOL;
         $fileData .= 'Sync' . PHP_EOL;
         $fileData .= '----------' . PHP_EOL;
-        $command = 'cd ' . __CACHE_DIR__ . $repo_name . ' && git pull';
+        $command = 'cd ' . __CACHE_DIR__ . '/' . $repo_name . ' && git pull';
         $fileData .= 'Executing: ' . $command . PHP_EOL;
         exec($command, $result);
         $fileData .= 'Result: ' . PHP_EOL . '* ' . implode(PHP_EOL . '* ', $result) . PHP_EOL . PHP_EOL;
@@ -64,7 +64,7 @@ if (empty($error)){
         $fileData .= '----------' . PHP_EOL;
         $fileData .= 'Clone' . PHP_EOL;
         $fileData .= '----------' . PHP_EOL;
-        $command = 'git clone ' . $repo_clone_url . ' ' . __CACHE_DIR__ . $repo_name;
+        $command = 'git clone ' . $repo_clone_url . ' ' . __CACHE_DIR__ . '/' . $repo_name;
         exec($command, $result);
         $fileData .= 'Result: ' . PHP_EOL . '* ' . implode(PHP_EOL . '* ', $result) . PHP_EOL . PHP_EOL;
     }
