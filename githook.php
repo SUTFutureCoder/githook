@@ -28,8 +28,6 @@ if (empty($error) && !empty($_REQUEST['payload'])){
 }
 
 if (empty($error)){
-    $updated = false;
-    
     $repo_name = substr(strrchr($payload['repository']['full_name'], '/'), 1);
     
     $repo_clone_url = $payload['repository']['clone_url'];
@@ -62,7 +60,6 @@ if (empty($error)){
         $fileData .= 'Executing: ' . $command . PHP_EOL;
         exec($command, $result);
         $fileData .= 'Result: ' . PHP_EOL . '* ' . implode(PHP_EOL . '* ', $result) . PHP_EOL . PHP_EOL;
-        $updated = true;
     }
 }
 
