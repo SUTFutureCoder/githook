@@ -79,5 +79,4 @@ if (!empty($error)){
 }
 
 //Write the log file
-$fp = fopen('pull_log.txt', 'a');
-file_put_contents('githook.txt', $fileData . PHP_EOL, FILE_APPEND);
+file_put_contents('githooklog.txt', $fileData . PHP_EOL, FILE_APPEND);
