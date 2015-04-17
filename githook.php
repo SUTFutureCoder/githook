@@ -4,9 +4,8 @@
  * 
  * @author *Chen Lin
  */
-
-// Include configuration file
-require __DIR__ . '/config.user.php';
+//Define cache dir
+define('__CACHE_DIR__', __DIR__ . '/sync-cache');
 
 //Prepare error var
 $error = '';
