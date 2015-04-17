@@ -1,0 +1,282 @@
+---2015-04-12 12:31:42---
+Shell Exec Command
+cd /var/www/html/githook && git@github.com:SUTFutureCoder/githook.git 2>&1
+Shell Exec Return
+sh: 1: git@github.com:SUTFutureCoder/githook.git: not found
+Status
+127
+---2015-04-12 12:32:19---
+Shell Exec Command
+cd /var/www/html/githook && git@github.com:SUTFutureCoder/githook.git 2>&1
+Shell Exec Return
+sh: 1: git@github.com:SUTFutureCoder/githook.git: not found
+Status
+127
+---2015-04-12 12:32:19---
+Shell Exec Command
+cd /var/www/html/githook && git@github.com:SUTFutureCoder/githook.git 2>&1
+Shell Exec Return
+sh: 1: git@github.com:SUTFutureCoder/githook.git: not found
+Status
+127
+---2015-04-12 12:32:19---
+Shell Exec Command
+cd /var/www/html/githook && git@github.com:SUTFutureCoder/githook.git 2>&1
+Shell Exec Return
+sh: 1: git@github.com:SUTFutureCoder/githook.git: not found
+Status
+127
+---2015-04-12 12:32:19---
+Shell Exec Command
+cd /var/www/html/githook && git@github.com:SUTFutureCoder/githook.git 2>&1
+Shell Exec Return
+sh: 1: git@github.com:SUTFutureCoder/githook.git: not found
+Status
+127
+---2015-04-12 12:32:19---
+Shell Exec Command
+cd /var/www/html/githook && git@github.com:SUTFutureCoder/githook.git 2>&1
+Shell Exec Return
+sh: 1: git@github.com:SUTFutureCoder/githook.git: not found
+Status
+127
+---2015-04-12 12:32:49---
+Shell Exec Command
+cd /var/www/html/githook && git@github.com:SUTFutureCoder/githook.git 2>&1
+Shell Exec Return
+sh: 1: git@github.com:SUTFutureCoder/githook.git: not found
+Status
+127
+---2015-04-12 12:32:52---
+Shell Exec Command
+cd /var/www/html/githook && git@github.com:SUTFutureCoder/githook.git 2>&1
+Shell Exec Return
+sh: 1: git@github.com:SUTFutureCoder/githook.git: not found
+Status
+127
+---2015-04-12 12:33:12---
+Shell Exec Command
+cd /var/www/html/githook && whoami
+Shell Exec Return
+www-data
+Status
+0
+---2015-04-12 12:33:12---
+Shell Exec Command
+cd /var/www/html/githook && whoami
+Shell Exec Return
+www-data
+Status
+0
+---2015-04-12 12:33:12---
+Shell Exec Command
+cd /var/www/html/githook && whoami
+Shell Exec Return
+www-data
+Status
+0
+---2015-04-12 12:33:12---
+Shell Exec Command
+cd /var/www/html/githook && whoami
+Shell Exec Return
+www-data
+Status
+0
+---2015-04-12 12:33:13---
+Shell Exec Command
+cd /var/www/html/githook && whoami
+Shell Exec Return
+www-data
+Status
+0
+---2015-04-12 12:33:13---
+Shell Exec Command
+cd /var/www/html/githook && whoami
+Shell Exec Return
+www-data
+Status
+0
+---2015-04-12 12:45:55---
+Shell Exec Command
+cd /var/www/html/githook && whoami
+Shell Exec Return
+www-data
+Status
+0
+---2015-04-12 12:45:57---
+Shell Exec Command
+cd /var/www/html/githook && whoami
+Shell Exec Return
+www-data
+Status
+0
+---2015-04-12 12:45:58---
+Shell Exec Command
+cd /var/www/html/githook && whoami
+Shell Exec Return
+www-data
+Status
+0
+---2015-04-12 12:45:58---
+Shell Exec Command
+cd /var/www/html/githook && whoami
+Shell Exec Return
+www-data
+Status
+0
+---2015-04-12 12:46:28---
+Shell Exec Command
+cd /var/www/html/githook && sudo -u root git pull
+Shell Exec Return
+Status
+1
+---2015-04-12 12:46:28---
+Shell Exec Command
+cd /var/www/html/githook && sudo -u root git pull
+Shell Exec Return
+Status
+1
+---2015-04-12 12:46:28---
+Shell Exec Command
+cd /var/www/html/githook && sudo -u root git pull
+Shell Exec Return
+Status
+1
+---2015-04-12 12:46:29---
+Shell Exec Command
+cd /var/www/html/githook && sudo -u root git pull
+Shell Exec Return
+Status
+1
+---2015-04-12 12:46:29---
+Shell Exec Command
+cd /var/www/html/githook && sudo -u root git pull
+Shell Exec Return
+Status
+1
+---2015-04-12 12:46:29---
+Shell Exec Command
+cd /var/www/html/githook && sudo -u root git pull
+Shell Exec Return
+Status
+1
+---2015-04-12 12:46:29---
+Shell Exec Command
+cd /var/www/html/githook && sudo -u root git pull
+Shell Exec Return
+Status
+1
+---2015-04-12 12:46:30---
+Shell Exec Command
+cd /var/www/html/githook && sudo -u root git pull
+Shell Exec Return
+Status
+1
+---2015-04-12 12:46:30---
+Shell Exec Command
+cd /var/www/html/githook && sudo -u root git pull
+Shell Exec Return
+Status
+1
+---2015-04-12 12:46:30---
+Shell Exec Command
+cd /var/www/html/githook && sudo -u root git pull
+Shell Exec Return
+Status
+1
+---2015-04-12 12:46:30---
+Shell Exec Command
+cd /var/www/html/githook && sudo -u root git pull
+Shell Exec Return
+Status
+1
+---2015-04-12 12:46:30---
+Shell Exec Command
+cd /var/www/html/githook && sudo -u root git pull
+Shell Exec Return
+Status
+1
+---2015-04-12 12:46:30---
+Shell Exec Command
+cd /var/www/html/githook && sudo -u root git pull
+Shell Exec Return
+Status
+1
+---2015-04-12 12:46:31---
+Shell Exec Command
+cd /var/www/html/githook && sudo -u root git pull
+Shell Exec Return
+Status
+1
+---2015-04-17 10:11:50---
+Shell Exec Command
+cd /var/www/html/githook/githook2 && git clone git@github.com:SUTFutureCoder/githook.git
+Shell Exec Return
+Status
+128
+---2015-04-17 10:13:46---
+Shell Exec Command
+cd /var/www/html/githook/githook2 && git clone git://github.com/SUTFutureCoder/githook.git
+Shell Exec Return
+Status
+128
+---2015-04-17 10:13:47---
+Shell Exec Command
+cd /var/www/html/githook/githook2 && git clone git://github.com/SUTFutureCoder/githook.git
+Shell Exec Return
+Status
+128
+---2015-04-17 10:14:39---
+Shell Exec Command
+cd /var/www/html/githook/githook2 && sudo git clone https://github.com/SUTFutureCoder/iDa.git
+Shell Exec Return
+Status
+1
+---2015-04-17 10:14:40---
+Shell Exec Command
+cd /var/www/html/githook/githook2 && sudo git clone https://github.com/SUTFutureCoder/iDa.git
+Shell Exec Return
+Status
+1
+---2015-04-17 10:14:40---
+Shell Exec Command
+cd /var/www/html/githook/githook2 && sudo git clone https://github.com/SUTFutureCoder/iDa.git
+Shell Exec Return
+Status
+1
+---2015-04-17 10:22:40---
+Shell Exec Command
+git clone https://github.com/SUTFutureCoder/githook.git /var/www/html/githook/githook2/sync-cache
+Shell Exec Return
+Status
+128
+---2015-04-17 10:22:48---
+Shell Exec Command
+git clone https://github.com/SUTFutureCoder/githook.git /var/www/html/githook/githook2/sync-cache
+Shell Exec Return
+Status
+128
+---2015-04-17 10:23:04---
+Shell Exec Command
+git clone https://github.com/SUTFutureCoder/githook.git /var/www/html/githook/githook2/sync-cache
+Shell Exec Return
+Status
+0
+---2015-04-17 10:30:07---
+Shell Exec Command
+git clone git@github.com:SUTFutureCoder/iDa.git /var/www/html/githook/githook2/sync-cache
+Shell Exec Return
+Status
+128
+---2015-04-17 10:30:15---
+Shell Exec Command
+git clone git@github.com:SUTFutureCoder/iDa.git /var/www/html/githook/githook2/sync-cache
+Shell Exec Return
+Status
+128
+---2015-04-17 10:30:33---
+Shell Exec Command
+git clone https://github.com/SUTFutureCoder/githook.git /var/www/html/githook/githook2/sync-cache
+Shell Exec Return
+Status
+0
