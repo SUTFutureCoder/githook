@@ -16,24 +16,19 @@ $error = '';
 //Prepare payload array
 $payload = array();
 
-function CopyFileAndDir($source, $dest, $diffDir = ''){
-    $sourceHandle = opendir($source);
-    if (!$diffDir){
-        $diffDir = $source;
-    }
-    mkdir($dest . '/' . $diffDir, 0777, TRUE);
-    
-    while ($res = readdir($sourceHandle)){
-        if ($res == '.' || $res == '..'){
-            continue;
-        }
-        
-        if (is_dir($source . '/' . $res)){
-            CopyFileAndDir($source . '/' . $res, $dest, $diffDir . '/' . $res);
-        } else {
-            copy($source . '/' . $res, $dest . '/' . $diffDir . '/' . $res);
+function CopyFileAndDir($source, $dest){
+    $dir = opendir($source);
+    mkdir($dest, 0777, true);
+    while (false !== ($file = readdir($dir))){
+        if (($file != '.') && ($file != '..')){
+            if (is_dir($source . '/' . $file)){
+                CopyFileAndDir($source . '/' . $file, $dest . '/' . $file);
+            } else {
+                copy($source . '/' . $file, $dest . '/' . $file);
+            }
         }
     }
+    closedir($dir);
 }
 
 //Get param from POST request and get the repo info
