@@ -69,15 +69,6 @@ if (empty($error)){
         $fileData .= 'Result: ' . PHP_EOL . '* ' . implode(PHP_EOL . '* ', $result) . PHP_EOL . PHP_EOL;
     }
 
-    //Exec git pull
-    
-
-    $fileData .= 'Shell Exec Command' . PHP_EOL;
-    $fileData .= $command . PHP_EOL;
-    $fileData .= 'Shell Exec Return' . PHP_EOL;
-    foreach ($out as $out_value){
-        $fileData .= $out_value . PHP_EOL;
-    }
 }
 
 if (!empty($error)){
