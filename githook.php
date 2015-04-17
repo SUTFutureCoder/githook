@@ -7,11 +7,34 @@
 //Define cache dir
 define('__CACHE_DIR__', __DIR__ . '/sync-cache');
 
+//Deploy dir
+define('__DEPLOY_DIR__', __DIR__ . '/test-deploy');
+
 //Prepare error var
 $error = '';
 
 //Prepare payload array
 $payload = array();
+
+function CopyFileAndDir($source, $dest, $diffDir = ''){
+    $sourceHandle = opendir($source);
+    if (!$diffDir){
+        $diffDir = $source;
+    }
+    mkdir($dest . '/' . $diffDir);
+    
+    while ($res = readdir($sourceHandle)){
+        if ($res == '.' || $res == '..'){
+            continue;
+        }
+        
+        if (is_dir($source . '/' . $res)){
+            CopyFileAndDir($source . '/' . $res, $dest, $diffDir . '/' . $res);
+        } else {
+            copy($source . '/' . $res, $dest . '/' . $diffDir . '/' . $res);
+        }
+    }
+}
 
 //Get param from POST request and get the repo info
 $fileData = '---' . date('Y-m-d H:i:s') . '---' . PHP_EOL;
@@ -35,7 +58,7 @@ if (empty($error)){
     //Cache project (clone if not exists or sync)
     if (!is_dir(__CACHE_DIR__ . '/' . $repo_name)){
         $fileData .= '----------' . PHP_EOL;
-        $fileData .= 'Create dir' . PHP_EOL;
+        $fileData .= 'Create cache dir' . PHP_EOL;
         $fileData .= '----------' . PHP_EOL;
         mkdir(__CACHE_DIR__ . '/' . $repo_name, 0777, TRUE);
         
@@ -45,6 +68,15 @@ if (empty($error)){
         $command = 'git clone ' . $repo_clone_url . ' ' . __CACHE_DIR__ . '/' . $repo_name;
         exec($command, $result);
         $fileData .= 'Result: ' . PHP_EOL . '* ' . implode(PHP_EOL . '* ', $result) . PHP_EOL . PHP_EOL;
+    }
+    
+    //Copy cache dir if deploy does not exist
+    if (!is_dir(__DEPLOY_DIR__)){
+        $fileData .= '----------' . PHP_EOL;
+        $fileData .= 'Create deploy dir' . PHP_EOL;
+        $fileData .= '----------' . PHP_EOL;
+        mkdir(__DEPLOY_DIR__, 0777, TRUE);
+        CopyFileAndDir(__CACHE_DIR__ . '/' . $repo_name, __DEPLOY_DIR__);
     }
 
     $fileData .= '----------' . PHP_EOL;
