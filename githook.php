@@ -21,7 +21,7 @@ function CopyFileAndDir($source, $dest, $diffDir = ''){
     if (!$diffDir){
         $diffDir = $source;
     }
-    mkdir($dest . '/' . $diffDir);
+    mkdir($dest . '/' . $diffDir, 0777, TRUE);
     
     while ($res = readdir($sourceHandle)){
         if ($res == '.' || $res == '..'){
@@ -60,7 +60,7 @@ if (empty($error)){
         $fileData .= '----------' . PHP_EOL;
         $fileData .= 'Create cache dir' . PHP_EOL;
         $fileData .= '----------' . PHP_EOL;
-        mkdir(__CACHE_DIR__ . '/' . $repo_name, 0777, TRUE);
+        mkdir(__CACHE_DIR__ . '/' . $repo_name, 0777, true);
         
         $fileData .= '----------' . PHP_EOL;
         $fileData .= 'Clone' . PHP_EOL;
