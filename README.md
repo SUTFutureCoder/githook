@@ -8,7 +8,7 @@ sudo chmod 777 -R /dir/
 **`define('__DEPLOY_DIR__', __DIR__ . '/sync-deploy');`**  
 将其更改为**之前未创建**的部署文件夹（防止权限问题而造成无法正常运行的问题） 
 3. 在任意项目的**git页面**的**Settings**面板中选择**Webhooks & Services**，点击**Add webhook**按钮，在**Payload URL**中填入能够访问到githook.php脚本的地址，例如  
-**http://sample.com/githook.php **
+http://sample.com/githook.php
 4. ENJOY ;-) 
 
     
