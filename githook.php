@@ -23,7 +23,7 @@ $fileData .= 'Repo check' . PHP_EOL;
 $fileData .= '----------' . PHP_EOL;
 
 if (empty($error) && !empty($_REQUEST['payload'])){
-    $payload = json_decode(json_encode(json_decode($_REQUEST['payload'])),true);
+    $payload = json_decode($_REQUEST['payload'],true);
     $fileData .= 'Payload decoded:' . PHP_EOL . var_dump($payload) . PHP_EOL;
 } else {
     $error = 'Payload variable does not exist or empty' . PHP_EOL;
