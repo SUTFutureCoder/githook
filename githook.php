@@ -23,9 +23,13 @@ $fileData .= 'Repo check' . PHP_EOL;
 $fileData .= '----------' . PHP_EOL;
 
 if (empty($error) && !empty($_REQUEST['payload'])){
+    //application/x-www-form-urlencodded
     $payload = json_decode($_REQUEST['payload'],true);
     $fileData .= 'Payload decoded:' . PHP_EOL . var_dump($payload) . PHP_EOL;
 } else {
+    //application/json
+    var_dump(file_get_contents("php://input"));
+    return 0;
     $error = 'Payload variable does not exist or empty' . PHP_EOL;
     $fileData .= $error;
 }
