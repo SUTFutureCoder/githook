@@ -4,9 +4,6 @@
  * 
  * @author *Chen Lin
  */
-//Define cache dir
-define('__CACHE_DIR__', __DIR__ . '/sync-cache');
-
 //Deploy dir
 define('__DEPLOY_DIR__', __DIR__ . '/test-deploy');
 
@@ -16,20 +13,8 @@ $error = '';
 //Prepare payload array
 $payload = array();
 
-function CopyFileAndDir($source, $dest){
-    $dir = opendir($source);
-    mkdir($dest, 0777, true);
-    while (false !== ($file = readdir($dir))){
-        if (($file != '.') && ($file != '..')){
-            if (is_dir($source . '/' . $file)){
-                CopyFileAndDir($source . '/' . $file, $dest . '/' . $file);
-            } else {
-                copy($source . '/' . $file, $dest . '/' . $file);
-            }
-        }
-    }
-    closedir($dir);
-}
+//Clone indicator
+$clone = false;
 
 //Get param from POST request and get the repo info
 $fileData = '---' . date('Y-m-d H:i:s') . '---' . PHP_EOL;
@@ -51,39 +36,31 @@ if (empty($error)){
     $repo_clone_url = $payload['repository']['clone_url'];
     
     //Cache project (clone if not exists or sync)
-    if (!is_dir(__CACHE_DIR__ . '/' . $repo_name)){
-        $fileData .= '----------' . PHP_EOL;
-        $fileData .= 'Create cache dir' . PHP_EOL;
-        $fileData .= '----------' . PHP_EOL;
-        mkdir(__CACHE_DIR__ . '/' . $repo_name, 0777, true);
-        
-        $fileData .= '----------' . PHP_EOL;
-        $fileData .= 'Clone' . PHP_EOL;
-        $fileData .= '----------' . PHP_EOL;
-        $command = 'git clone ' . $repo_clone_url . ' ' . __CACHE_DIR__ . '/' . $repo_name;
-        exec($command, $result);
-        $fileData .= 'Result: ' . PHP_EOL . '* ' . implode(PHP_EOL . '* ', $result) . PHP_EOL . PHP_EOL;
-    }
-    
-    //Copy cache dir if deploy does not exist
     if (!is_dir(__DEPLOY_DIR__)){
         $fileData .= '----------' . PHP_EOL;
         $fileData .= 'Create deploy dir' . PHP_EOL;
         $fileData .= '----------' . PHP_EOL;
-        mkdir(__DEPLOY_DIR__, 0777, TRUE);
-        CopyFileAndDir(__CACHE_DIR__ . '/' . $repo_name, __DEPLOY_DIR__);
+        mkdir(__DEPLOY_DIR__, 0777, true);
+        
+        $fileData .= '----------' . PHP_EOL;
+        $fileData .= 'Clone' . PHP_EOL;
+        $fileData .= '----------' . PHP_EOL;
+        $command = 'git clone ' . $repo_clone_url . ' ' . __DEPLOY_DIR__;
+        exec($command, $result);
+        $fileData .= 'Result: ' . PHP_EOL . '* ' . implode(PHP_EOL . '* ', $result) . PHP_EOL . PHP_EOL;
+        $clone = true;
     }
-
+    
     $fileData .= '----------' . PHP_EOL;
     $fileData .= 'Check out & sync' . PHP_EOL;
     $fileData .= '----------' . PHP_EOL;
     
     //If dir is already created, try to sync it
-    if (is_dir(__CACHE_DIR__ . '/' . $repo_name)){
+    if (is_dir(__DEPLOY_DIR__) && !$clone){
         $fileData .= '----------' . PHP_EOL;
         $fileData .= 'Sync' . PHP_EOL;
         $fileData .= '----------' . PHP_EOL;
-        $command = 'cd ' . __CACHE_DIR__ . '/' . $repo_name . ' && git pull';
+        $command = 'cd ' . __DEPLOY_DIR__ . ' && git pull';
         $fileData .= 'Executing: ' . $command . PHP_EOL;
         exec($command, $result);
         $fileData .= 'Result: ' . PHP_EOL . '* ' . implode(PHP_EOL . '* ', $result) . PHP_EOL . PHP_EOL;
