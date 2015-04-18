@@ -5,7 +5,7 @@
  * @author *Chen Lin
  */
 //Deploy dir
-define('__DEPLOY_DIR__', __DIR__ . '/test-deploy');
+define('__DEPLOY_DIR__', __DIR__ . '/sync-deploy');
 
 //Prepare error var
 $error = '';
