@@ -2,7 +2,8 @@
 /**
  * A simple exec file can exec git pull from gitlab by Web Hooks
  * 
- * @author *Chen Lin
+ * @author  *Chen Lin
+ * @link    https://github.com/SUTFutureCoder/githook/
  */
 //Deploy dir
 define('__DEPLOY_DIR__', __DIR__ . '/sync-deploy');
