@@ -28,7 +28,7 @@ if (empty($error) && !empty($_REQUEST['payload'])){
     $fileData .= 'Payload decoded:' . PHP_EOL . var_dump($payload) . PHP_EOL;
 } else {
     //application/json
-    var_dump(file_get_contents("php://input"));
+    var_dump(json_decode(file_get_contents("php://input")));
     return 0;
     $error = 'Payload variable does not exist or empty' . PHP_EOL;
     $fileData .= $error;
