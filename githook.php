@@ -32,6 +32,13 @@ if (!empty($_REQUEST['payload'])){
     $fileData .= 'Payload decoded[json]:' . PHP_EOL . var_dump($payload) . PHP_EOL;
 } else {
     $error = 'PLEASE DO NOT ACCESS DIRECTLY';
+    header("Content-type:text/html;charset=utf-8");
+    echo 'PLEASE COPY↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑URL IN YOUR BROWSER TO YOUR GIT HOOK<br/>';    
+    echo '请复制浏览器显示地址到githook，请勿直接访问<br/>';
+    echo '<hr>';
+    echo $error . '<br/><hr>';
+    echo 'THANKS FOR USEING';
+    
     $fileData .= $error . PHP_EOL;
 }
 
